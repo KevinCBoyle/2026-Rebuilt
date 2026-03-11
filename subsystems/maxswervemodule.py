@@ -3,7 +3,7 @@
 # Open Source Software; you can modify and/or share it under the terms of
 # the WPILib BSD license file in the root directory of this project.
 #
-
+import rev
 from rev import SparkMax, SparkMaxConfig, ClosedLoopConfig, ResetMode, PersistMode
 from wpimath.geometry import Rotation2d
 from wpimath.kinematics import SwerveModuleState, SwerveModulePosition
@@ -36,10 +36,10 @@ class MAXSwerveModule:
         self.drivingPidController = self.drivingSparkMax.getClosedLoopController()
         self.turningPidController = self.turningSparkMax.getClosedLoopController()
         self.drivingConfig.closedLoop.setFeedbackSensor(
-            ClosedLoopConfig.FeedbackSensor.kPrimaryEncoder
+            rev.FeedbackSensor.kPrimaryEncoder
         )
         self.turningConfig.closedLoop.setFeedbackSensor(
-            ClosedLoopConfig.FeedbackSensor.kAbsoluteEncoder
+            rev.FeedbackSensor.kAbsoluteEncoder
         )
 
         # Apply position and velocity conversion factors for the driving encoder. The
